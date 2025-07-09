@@ -1,0 +1,129 @@
+{% extends "website/base.html" %}
+{% load i18n static %}
+{% block title %}{% trans "خدماتنا - DataWaveAI" %}{% endblock %}
+
+{% block content %}
+<!-- عنوان قسم الخدمات بشكل أنيق ومحسّن -->
+<section class="py-5 mt-5" style="background-color: #e8f0ff; border-bottom: 2px solid #d0e2ff;">
+  <div class="container text-center">
+    <h1 class="display-4 fw-bold text-primary mb-3" style="letter-spacing: 1px;">{% trans "خدماتنا" %}</h1>
+    <p class="lead mb-0" style="
+        color: #333;
+        font-weight: 500;
+        font-size: 1.25rem;
+        font-family: 'Cairo', sans-serif;
+        max-width: 750px;
+        margin: auto;
+    ">
+      {% trans "نقدّم لك حلولاً متكاملة في عالم التقنية، من التصميم إلى البرمجة والتسويق، بخبرة واحترافية." %}
+    </p>
+  </div>
+</section>
+
+<!-- عرض الخدمات -->
+<section class="py-5" style="background-color: #f8f9fa;">
+  <div class="container">
+    <div class="row g-4">
+      {% for service in services %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm border-0 service-card text-center">
+            {% if service.image %}
+              <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}" style="height: 200px; object-fit: cover;">
+            {% else %}
+              <img src="{% static 'images/default-service.png' %}" class="card-img-top" alt="{% trans 'صورة افتراضية' %}" style="height: 200px; object-fit: cover;">
+            {% endif %}
+
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">{{ service.title }}</h5>
+              <p class="card-text text-muted">{{ service.description|truncatewords_html:14 |safe }}</p>
+              <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#serviceModal{{ service.id }}">
+                {% trans "عرض سريع" %}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="serviceModal{{ service.id }}" tabindex="-1" aria-labelledby="modalLabel{{ service.id }}" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="modalLabel{{ service.id }}">{{ service.title }}</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="{% trans 'إغلاق' %}"></button>
+              </div>
+              <div class="modal-body text-start">
+                {% if service.image %}
+                  <img src="{{ service.image.url }}" class="img-fluid mb-3 rounded" alt="{{ service.title }}">
+                {% endif %}
+                <p style="font-size: 1.1rem;">{{ service.description|truncatewords_html:14 |safe }}</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "إغلاق" %}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12 text-center">
+          <p class="text-muted">{% trans "لا توجد خدمات حالياً." %}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- لماذا تختارنا -->
+<section class="py-5 bg-body-tertiary">
+  <div class="container text-center">
+    <h2 class="mb-5 fw-bold text-dark">{% trans " لماذا تختار  DataWaveAI ؟  " %}</h2>
+    <div class="row g-4 justify-content-center">
+
+      <!-- جودة واحترافية -->
+      <div class="col-6 col-md-3">
+        <div class="mb-3 p-4 rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width:80px; height:80px;">
+          <i class="bi bi-star-fill fs-3"></i>
+        </div>
+        <p class="mt-2 fw-medium text-dark">{% trans "جودة واحترافية" %}</p>
+      </div>
+
+      <!-- تسليم في الوقت المحدد -->
+      <div class="col-6 col-md-3">
+        <div class="mb-3 p-4 rounded-circle bg-success text-white d-inline-flex justify-content-center align-items-center" style="width:80px; height:80px;">
+          <i class="bi bi-alarm-fill fs-3"></i>
+        </div>
+        <p class="mt-2 fw-medium text-dark">{% trans "تسليم في الوقت المحدد" %}</p>
+      </div>
+
+      <!-- دعم فني دائم -->
+      <div class="col-6 col-md-3">
+        <div class="mb-3 p-4 rounded-circle bg-warning text-white d-inline-flex justify-content-center align-items-center" style="width:80px; height:80px;">
+          <i class="bi bi-headset fs-3"></i>
+        </div>
+        <p class="mt-2 fw-medium text-dark">{% trans "دعم فني دائم" %}</p>
+      </div>
+
+      <!-- أسعار منافسة -->
+      <div class="col-6 col-md-3">
+        <div class="mb-3 p-4 rounded-circle bg-danger text-white d-inline-flex justify-content-center align-items-center" style="width:80px; height:80px;">
+          <i class="bi bi-tags-fill fs-3"></i>
+        </div>
+        <p class="mt-2 fw-medium text-dark">{% trans "أسعار منافسة" %}</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- دعوة للإجراء -->
+<section class="py-5 text-center" style="background-color: #42a5f5; box-shadow: 0 6px 15px rgba(0,0,0,0.15);">
+  <div class="container">
+    <h3 class="mb-3 text-white fw-bold">{% trans "هل لديك فكرة أو مشروع؟" %}</h3>
+    <p class="mb-4 text-white">{% trans "تواصل معنا الآن ودعنا نساعدك في تنفيذها باحترافية." %}</p>
+    <a href="{% url 'contact' %}" class="btn btn-light fw-bold">{% trans "ابدأ الآن" %}</a>
+  </div>
+</section>
+
+
+
+
+{% endblock %}

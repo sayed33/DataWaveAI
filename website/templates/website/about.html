@@ -1,0 +1,175 @@
+{% extends "website/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+
+<!-- تعريف الشركة -->
+<section class="py-5" data-aos="fade-up">
+  <div class="container text-center" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+    {% if about.logo %}
+      <img src="{{ about.logo.url }}" class="mb-3" style="width:120px;">
+    {% endif %}
+    <h2 class="mb-1 text-primary">{{ about.company_name }}</h2>
+    <h3 class="fw-bold mb-3">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.heading_ar }}
+      {% else %}
+        {{ about.heading_en }}
+      {% endif %}
+    </h3>
+    <p class="lead mx-auto fw-bold text-dark fs-5">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.description_ar|safe }}
+      {% else %}
+        {{ about.description_en|safe }}
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<!-- الرؤية -->
+<section class="bg-light py-5">
+  <div class="container text-center" data-aos="fade-up" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+    <h3 class="text-primary mb-3">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.vision_title_ar }}
+      {% else %}
+        {{ about.vision_title_en }}
+      {% endif %}
+    </h3>
+    <p class="fw-bold text-dark fs-5">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.vision_desc_ar|safe }}
+      {% else %}
+        {{ about.vision_desc_en|safe }}
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<!-- الرسالة -->
+<section class="py-5">
+  <div class="container text-center" data-aos="fade-up" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+    <h3 class="text-success mb-3">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.mission_title_ar }}
+      {% else %}
+        {{ about.mission_title_en }}
+      {% endif %}
+    </h3>
+    <p class="fw-bold text-dark fs-5">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.mission_desc_ar|safe }}
+      {% else %}
+        {{ about.mission_desc_en|safe }}
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<!-- الأهداف -->
+<section class="bg-light py-5">
+  <div class="container fw-bold text-dark fs-5" data-aos="fade-up">
+    <h3 class="text-danger text-center mb-3">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.goals_title_ar }}
+      {% else %}
+        {{ about.goals_title_en }}
+      {% endif %}
+    </h3>
+
+    <ul class="list-group list-group-flush" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+      {% if LANGUAGE_CODE == "ar" %}
+        {% for goal in about.goals_list_ar.splitlines %}
+          {% if goal %}
+            <li class="list-group-item d-flex align-items-center flex-row-reverse text-end"
+                data-aos="fade-right" data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+              <i class="fas fa-check-circle text-success ms-2"></i>
+              <span>{{ goal }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for goal in about.goals_list_en.splitlines %}
+          {% if goal %}
+            <li class="list-group-item d-flex align-items-center text-start"
+                data-aos="fade-left" data-aos-delay="{{ forloop.counter0|add:'1' }}00">
+              <i class="fas fa-check-circle text-success me-2"></i>
+              <span>{{ goal }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </ul>
+  </div>
+</section>
+
+<!-- لماذا نحن -->
+<section class="py-5">
+  <div class="container text-center" data-aos="fade-up" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
+    <h3 class="text-primary mb-3">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.why_us_title_ar }}
+      {% else %}
+        {{ about.why_us_title_en }}
+      {% endif %}
+    </h3>
+    <p class="lead fw-bold text-dark fs-5">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.why_us_desc_ar|safe }}
+      {% else %}
+        {{ about.why_us_desc_en|safe }}
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<!-- التقنيات -->
+<section class="bg-light py-5">
+  <div class="container" data-aos="fade-up">
+    <h3 class="text-center mb-4">
+      {% if LANGUAGE_CODE == "ar" %}
+        {{ about.techs_title_ar }}
+      {% else %}
+        {{ about.techs_title_en }}
+      {% endif %}
+    </h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      {% for tech in techs %}
+      <div class="col" data-aos="zoom-in">
+        <div class="d-flex {% if LANGUAGE_CODE == 'ar' %}flex-row-reverse{% endif %} align-items-center bg-white rounded shadow-sm p-3 h-100">
+          <img src="{{ tech.image.url }}" class="rounded-circle {% if LANGUAGE_CODE == 'ar' %}ms-3{% else %}me-3{% endif %}" width="60" height="60">
+          <div class="{% if LANGUAGE_CODE == 'ar' %}text-end{% else %}text-start{% endif %}">
+            <h6 class="mb-1 fw-bold text-dark fs-5">
+              {% if LANGUAGE_CODE == "ar" %}
+                {{ tech.name_ar }}
+              {% else %}
+                {{ tech.name_en }}
+              {% endif %}
+            </h6>
+            <p class="small text-muted mb-0 fw-bold text-dark">
+              {% if LANGUAGE_CODE == "ar" %}
+                {{ tech.desc_ar }}
+              {% else %}
+                {{ tech.desc_en }}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- فيديو تعريفي -->
+<section class="py-5">
+  <div class="container text-center">
+    <h3 class="mb-4">{% trans "فيديو تعريفي" %}</h3>
+    <div class="ratio ratio-16x9">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Company Intro" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

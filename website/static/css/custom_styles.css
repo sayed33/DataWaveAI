@@ -1,0 +1,415 @@
+/* === تنسيقات أساسية RTL / LTR === */
+html.rtl body {
+  text-align: right;
+  direction: rtl;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fbfd;
+  color: #333;
+}
+
+html.ltr body {
+  text-align: left;
+  direction: ltr;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fbfd;
+  color: #333;
+}
+
+/* === كروت الخدمات === */
+.service-card {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+  border: 1px solid #e1e8f0;
+  border-radius: 16px;
+  background: #ffffffcc;
+  backdrop-filter: saturate(180%) blur(10px);
+  box-shadow: 0 4px 8px rgba(30, 58, 138, 0.05);
+  cursor: pointer;
+  animation-fill-mode: forwards;
+}
+
+.service-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+  border-color: #1e3a8a;
+  animation: shadowShift 1.5s infinite alternate;
+}
+
+/* ظل متحرك على hover */
+@keyframes shadowShift {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0, 145, 255, 0.3); }
+  50% { box-shadow: 0 10px 25px rgba(0, 145, 255, 0.6); }
+}
+
+.service-card i {
+  transition: color 0.35s ease;
+  color: #4a6cf7;
+}
+
+.service-card:hover i {
+  color: #0d6efd;
+}
+
+/* === أيقونات التقنية مع نبض وحركة === */
+.icon-wrapper {
+  background: linear-gradient(135deg, #4e91fc, #00d4ff);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 145, 255, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0, 145, 255, 0.3));
+  animation: techPulse 3s ease-in-out infinite;
+}
+
+.icon-wrapper i {
+  transition: transform 0.4s ease;
+  font-size: 2.5rem;
+}
+
+.icon-wrapper:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 14px 40px rgba(0, 145, 255, 0.7);
+}
+
+.icon-wrapper:hover i {
+  transform: rotate(20deg) scale(1.15);
+}
+
+/* نبض للأيقونات */
+@keyframes techPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #06b6d4);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px #06b6d4);
+  }
+}
+
+/* === تأثير توهج على العناوين التقنية === */
+.text-gradient-tech {
+  background: linear-gradient(135deg, #1e3a8a, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 8px rgba(6, 182, 212, 0.7),
+    0 0 20px rgba(6, 182, 212, 0.5);
+  user-select: none;
+}
+
+/* === تأثير الكتابة الآلية (typing effect) === */
+.typing-effect {
+  overflow: hidden;
+  border-right: .15em solid #06b6d4;
+  white-space: nowrap;
+  animation:
+    typing 3s steps(30, end) infinite,
+    blink-caret .75s step-end infinite;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #0d6efd;
+  margin: 0 auto;
+  max-width: fit-content;
+  user-select: none;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent }
+  100% { border-color: #06b6d4 }
+}
+
+/* === الفقرات === */
+section p.lead {
+  line-height: 1.85;
+  color: #555f77;
+  font-weight: 400;
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+  background-color: #f0f4ffcc;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.05);
+}
+
+/* === أزرار مع تأثير توهج وحركة === */
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+  box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.7);
+  transform: scale(1.07) rotate(-1deg);
+}
+
+/* === خلفية السلايدر === */
+.bg-gradient-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.15));
+  border-radius: 0 0 15px 15px;
+}
+
+/* === حجم السلايدر === */
+.slider-fixed {
+  max-height: 480px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* === حجم الصور داخل السلايدر === */
+.slider-img {
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+.slider-img:hover {
+  filter: brightness(1);
+}
+
+/* === صناديق الإحصائيات === */
+.stat-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.1);
+  cursor: default;
+  user-select: none;
+}
+.stat-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 40px rgba(13, 110, 253, 0.2);
+}
+
+.stat-img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 2px 4px rgba(13, 110, 253, 0.2));
+}
+
+.stat-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.stat-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(13, 110, 253, 0.15);
+}
+
+.stat-icon {
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  background-color: #cce5ff;
+  margin-bottom: 15px;
+}
+
+.stat-box:hover .stat-icon {
+  background-color: #0d6efd;
+}
+
+.counter {
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #0d6efd;
+  letter-spacing: 0.02em;
+}
+
+/* === روابط وسائل التواصل === */
+.social-icon-hover {
+  transition: color 0.4s ease, transform 0.4s ease;
+  color: #6c757d;
+}
+.social-icon-hover:hover {
+  color: #0d6efd;
+  transform: scale(1.25);
+}
+
+/* === روابط الفوتر === */
+.footer-links a {
+  color: #adb5bd;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-links a:hover {
+  color: #0d6efd;
+  transform: translateX(6px);
+  text-decoration: underline;
+}
+
+/* === شريط التنقل ثابت وانسيابي === */
+.navbar-scroll {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  transition: top 0.3s ease-in-out;
+  background: #0d6efdcc;
+  backdrop-filter: saturate(180%) blur(8px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+/* === تأثير طفو للأيقونات في الـ AOS === */
+.aos-icon {
+  font-size: 1.8rem;
+  display: inline-block;
+  animation: floatIcon 2.5s ease-in-out infinite;
+  color: #0d6efd;
+  text-shadow: 0 2px 6px rgba(13, 110, 253, 0.4);
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* === أزرار متناسقة === */
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+  box-shadow: 0 6px 15px rgba(13, 110, 253, 0.5);
+  transform: scale(1.05);
+}
+
+/* === تحجيم العناوين داخل الكروت === */
+.card-title.text-gradient-tech {
+  font-size: 1.4rem;
+}
+
+/* === تحسين تدرج لون الخلفيات والحدود للعناصر الرئيسية === */
+.container section {
+  padding: 1.5rem 1rem;
+  background: #ffffffee;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.05);
+  margin-bottom: 3rem;
+}
+
+/* === روابط التنقل في القائمة === */
+.navbar-nav .nav-link {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #e9ecef;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff;
+  text-shadow: 0 0 6px #0d6efd;
+}
+
+/* === الأزرار داخل الفوتر === */
+.footer-links a {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* === تحسين تجربة المستخدم على الموبايل === */
+@media (max-width: 768px) {
+  .icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  .icon-wrapper i {
+    font-size: 2rem;
+  }
+  .stat-icon {
+    width: 70px;
+    height: 70px;
+  }
+  .counter {
+    font-size: 2rem;
+  }
+  .card-title.text-gradient-tech {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+.service-image {
+   width: 100%;
+   height: 180px;
+   object-fit: cover;
+   transition: transform 0.4s ease, box-shadow 0.4s ease;
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+ }
+
+ .card:hover .service-image {
+   transform: scale(1.05);
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+ }
+
+ .card-title {
+   font-weight: 600;
+   font-size: 1.1rem;
+ }
+
+
+
+/* === لمسة خفيفة على الروابط في محتوى الصفحة === */
+a, a:hover, a:focus {
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  border-color: #0d6efd;
+}
+
+html.rtl body {
+  direction: rtl !important;
+  text-align: right !important;
+}
+html.ltr body {
+  direction: ltr !important;
+  text-align: left !important;
+}

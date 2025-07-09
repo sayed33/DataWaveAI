@@ -1,0 +1,9 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container py-5">
+    <h2>{{ service.title }}</h2>
+    <div>{{ service.description|safe }}</div>
+  </div>
+{% endblock %}

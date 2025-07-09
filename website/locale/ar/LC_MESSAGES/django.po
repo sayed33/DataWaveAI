@@ -1,0 +1,273 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-07 08:32+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\models.py:41
+#, fuzzy
+#| msgid "Name"
+msgid "Full Name"
+msgstr "الاسم"
+
+#: .\models.py:42
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\models.py:43
+msgid "Phone"
+msgstr "الهاتف"
+
+#: .\models.py:44
+msgid "Message"
+msgstr "الرسالة"
+
+#: .\models.py:48
+#, fuzzy
+#| msgid "Contact Us"
+msgid "Contact Message"
+msgstr "تواصل معنا"
+
+#: .\models.py:49
+#, fuzzy
+#| msgid "Contact Us"
+msgid "Contact Messages"
+msgstr "تواصل معنا"
+
+#: .\models.py:130
+msgid "افصل كل هدف بسطر جديد"
+msgstr ""
+
+#: .\models.py:131
+msgid "Separate each goal with a new line"
+msgstr ""
+
+#: .\templates\website\base.html:56 .\templates\website\base.html:138
+msgid "الرئيسية"
+msgstr "الرئيسية"
+
+#: .\templates\website\base.html:57 .\templates\website\base.html:140
+#: .\templates\website\home.html:55
+msgid "خدماتنا"
+msgstr "خدماتنا"
+
+#: .\templates\website\base.html:59
+msgid "الباقات"
+msgstr "الباقات"
+
+#: .\templates\website\base.html:61
+msgid "تصميم المواقع"
+msgstr "تصميم المواقع"
+
+#: .\templates\website\base.html:62
+msgid "تطبيقات ومواقع"
+msgstr "تطبيقات ومواقع"
+
+#: .\templates\website\base.html:63
+msgid "الاستضافة والتسويق"
+msgstr "الاستضافة والتسويق"
+
+#: .\templates\website\base.html:66 .\templates\website\base.html:139
+msgid "من نحن"
+msgstr "من نحن"
+
+#: .\templates\website\base.html:67 .\templates\website\base.html:141
+#: .\templates\website\base.html:148
+msgid "تواصل معنا"
+msgstr "تواصل معنا"
+
+#: .\templates\website\base.html:75
+msgid "اللغة"
+msgstr "اللغة"
+
+#: .\templates\website\base.html:136
+msgid "روابط سريعة"
+msgstr "روابط سريعة"
+
+#: .\templates\website\base.html:156
+msgid "تابعنا"
+msgstr "تابعنا"
+
+#: .\templates\website\base.html:170
+#, fuzzy
+#| msgid "عن DataWaveAI"
+msgid " DataWaveAI"
+msgstr "عن DataWaveAI"
+
+#: .\templates\website\base.html:179
+msgid "جميع الحقوق محفوظة."
+msgstr "جميع الحقوق محفوظة."
+
+#: .\templates\website\contact.html:9
+msgid "الخوض - مسقط - سلطنة عمان"
+msgstr ""
+
+#: .\templates\website\contact.html:27
+msgid "أرسل لنا ما تريد وسيتواصل معك الفريق المختص"
+msgstr ""
+
+#: .\templates\website\contact.html:44
+#, fuzzy
+#| msgid "أقسام الموقع"
+msgid "الاسم الكامل"
+msgstr "أقسام الموقع"
+
+#: .\templates\website\contact.html:48
+#, fuzzy
+#| msgid "سارة - أخصائية تسويق إلكتروني"
+msgid "البريد الإلكتروني"
+msgstr "سارة - أخصائية تسويق إلكتروني"
+
+#: .\templates\website\contact.html:52
+msgid "رقم الهاتف (اختياري)"
+msgstr ""
+
+#: .\templates\website\contact.html:56
+#, fuzzy
+#| msgid "تصميم المواقع"
+msgid "الموضوع"
+msgstr "تصميم المواقع"
+
+#: .\templates\website\contact.html:60
+#, fuzzy
+#| msgid "إرسال"
+msgid "الرسالة"
+msgstr "إرسال"
+
+#: .\templates\website\contact.html:65
+msgid "إرسال"
+msgstr "إرسال"
+
+#: .\templates\website\contact.html:77
+msgid "تواصل معنا أيضًا عبر وسائل التواصل الاجتماعي"
+msgstr ""
+
+#: .\templates\website\home.html:18 .\templates\website\home.html:70
+msgid "عرض التفاصيل"
+msgstr "عرض التفاصيل"
+
+#: .\templates\website\home.html:28
+msgid "السابق"
+msgstr "السابق"
+
+#: .\templates\website\home.html:32
+msgid "التالي"
+msgstr "التالي"
+
+#: .\templates\website\home.html:83
+msgid "أقسام الموقع"
+msgstr "أقسام الموقع"
+
+#: .\templates\website\home.html:108
+#, fuzzy
+#| msgid "الباقات - DataWaveAI"
+msgid "إحصائيات DataWaveAI"
+msgstr "الباقات - DataWaveAI"
+
+#: .\templates\website\packages.html:3
+msgid "الباقات - DataWaveAI"
+msgstr "الباقات - DataWaveAI"
+
+#: .\templates\website\packages.html:6
+msgid "الباقات المتاحة"
+msgstr "الباقات المتاحة"
+
+#: .\templates\website\packages.html:7
+msgid "الفئة"
+msgstr "الفئة"
+
+#: .\templates\website\packages.html:21
+msgid "لا توجد باقات في هذه الفئة."
+msgstr "لا توجد باقات في هذه الفئة."
+
+#: .\templates\website\services.html:3
+msgid "خدماتنا - DataWaveAI"
+msgstr "خدماتنا - DataWaveAI"
+
+#: .\templates\website\services.html:6
+msgid "خدماتنا بالتفصيل"
+msgstr "خدماتنا بالتفصيل"
+
+#: .\templates\website\services.html:17
+msgid "لا توجد خدمات لعرضها."
+msgstr "لا توجد خدمات لعرضها."
+
+#~ msgid "فريق العمل"
+#~ msgstr "فريق العمل"
+
+#~ msgid "محمد - مدير المشروع"
+#~ msgstr "محمد - مدير المشروع"
+
+#~ msgid "أحمد - مطور ويب"
+#~ msgstr "أحمد - مطور ويب"
+
+#~ msgid "كل الحقوق محفوظة."
+#~ msgstr "كل الحقوق محفوظة."
+
+#~ msgid "تم إرسال رسالتك بنجاح"
+#~ msgstr "تم إرسال رسالتك بنجاح"
+
+#~ msgid "DataWaveAI إحصائيات "
+#~ msgstr "DataWaveAI إحصائيات "
+
+#~ msgid "Language"
+#~ msgstr "اللغة"
+
+#~ msgid "Our Services"
+#~ msgstr "خدماتنا"
+
+#~ msgid "Home"
+#~ msgstr "الرئيسية"
+
+#~ msgid "About Us"
+#~ msgstr "من نحن"
+
+#~ msgid "Services"
+#~ msgstr "خدماتنا"
+
+#~ msgid "Packages"
+#~ msgstr "الباقات"
+
+#~ msgid "View All Services"
+#~ msgstr "عرض كل الخدمات"
+
+#~ msgid "No services available."
+#~ msgstr "لا توجد خدمات حالياً."
+
+#~ msgid "Detailed Services"
+#~ msgstr "الخدمات بالتفصيل"
+
+#~ msgid "Available Packages"
+#~ msgstr "الباقات المتاحة"
+
+#~ msgid "Category"
+#~ msgstr "الفئة"
+
+#~ msgid "No packages in this category."
+#~ msgstr "لا توجد باقات في هذه الفئة."
+
+#~ msgid "Send"
+#~ msgstr "إرسال"
+
+#~ msgid "Your message has been sent successfully."
+#~ msgstr "تم إرسال رسالتك بنجاح."
+
+#~ msgid "All rights reserved"
+#~ msgstr "جميع الحقوق محفوظة"
+
+#~ msgid "Address"
+#~ msgstr "العنوان"

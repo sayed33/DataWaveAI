@@ -1,0 +1,24 @@
+{% extends "website/base.html" %}
+{% load i18n %}
+{% block title %}{% trans "الباقات - DataWaveAI" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "الباقات المتاحة" %}</h1>
+<p class="mb-4">{% trans "الفئة" %}: {{ category }}</p>
+
+<div class="row">
+    {% for package in packages %}
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ package.name }}</h5>
+                <p class="card-text">{{ package.features }}</p>
+                <p class="card-text fw-bold text-primary">{{ package.price }} OMR</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>{% trans "لا توجد باقات في هذه الفئة." %}</p>
+    {% endfor %}
+</div>
+{% endblock %}

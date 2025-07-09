@@ -1,0 +1,171 @@
+{% extends "website/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+
+
+
+<!-- السلايدر -->
+<div id="carouselExample" class="carousel slide mb-5 slider-fixed" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for slide in sliders %}
+    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+      <img src="{{ slide.image.url }}" class="d-block w-100 slider-img" alt="{{ slide.title }}">
+      <div class="carousel-caption d-none d-md-block bg-gradient-overlay rounded p-4">
+        <h5 class="text-white fw-bold fs-3">{{ slide.title }}</h5>
+        <p class="text-light fs-6">{{ slide.subtitle }}</p>
+        {% if slide.service %}
+        <a href="{% url 'service_detail' slide.service.id %}" class="btn btn-light btn-sm mt-2 px-4 py-2 rounded-pill">{% trans "عرض التفاصيل" %}</a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- الأسهم -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3"></span>
+    <span class="visually-hidden">{% trans "السابق" %}</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark rounded-circle p-3"></span>
+    <span class="visually-hidden">{% trans "التالي" %}</span>
+  </button>
+</div>
+
+<!-- وصف الموقع بعرض الصفحة بالكامل وبالنص في المنتصف -->
+<section class="w-100 py-5" style="background: linear-gradient(to right, #f0f4ff, #eaf6ff);">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4 text-gradient-tech" data-aos="fade-up" data-aos-delay="100">
+      {{ site_description.heading }}
+    </h2>
+
+    <p class="lead fs-5 text-muted mx-auto" style="max-width: 900px;" data-aos="fade-up" data-aos-delay="200">
+      {{ site_description.description|safe }}
+    </p>
+  </div>
+</section>
+
+<!-- خدماتنا -->
+<section class="py-5" style="background: linear-gradient(to right, #e0f2fe, #f0f9ff);">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5 text-primary d-flex align-items-center justify-content-center gap-2" data-aos="fade-up">
+      <span class="aos-icon" data-aos="fade-up" data-aos-delay="100">🛠️</span>
+      {% trans "خدماتنا" %}
+    </h2>
+    <div class="row g-4">
+      {% for service in services %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card service-card h-100 text-center p-0 w-100 overflow-hidden" data-aos="fade-up" style="border:none; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 15px;">
+
+            {% if service.image %}
+              <div class="image-container">
+                <img src="{{ service.image.url }}" alt="{{ service.title }}" class="card-img-top service-image">
+              </div>
+            {% else %}
+              <img src="{% static 'images/default-service.png' %}" alt="{{ service.title }}" class="card-img-top service-image">
+            {% endif %}
+
+            <div class="card-body px-3 pb-4 pt-3">
+              <h5 class="card-title text-gradient-tech">{{ service.title }}</h5>
+              <p class="card-text text-muted">{{ service.description|truncatewords_html:14 |safe }}</p>
+              <a href="{% url 'service_detail' service.id %}" class="btn btn-outline-primary mt-2">{% trans "عرض التفاصيل" %}</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- الأقسام الرئيسية -->
+<section class="py-5" style="background: linear-gradient(to right, #fef9f5, #fffaf0);">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5 text-warning d-flex align-items-center justify-content-center gap-2" data-aos="fade-up">
+      <span class="aos-icon" data-aos="zoom-in" data-aos-delay="100">📂</span>
+      {% trans "أقسام الموقع" %}
+    </h2>
+    <div class="row g-4">
+      {% for cat in main_categories %}
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+          <a href="{% url 'packages_by_category' cat.id %}" class="text-decoration-none w-100 d-flex flex-column">
+            <div class="card h-100 shadow service-card flex-fill">
+              <img src="{{ cat.image.url }}" class="card-img-top" alt="{{ cat.title }}">
+              <div class="card-body text-center">
+                <h5 class="card-title text-dark">{{ cat.title }}</h5>
+                <p class="card-text text-muted">{{ cat.description|truncatewords_html:10 |safe }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- الإحصائيات -->
+<section class="py-5" style="background: linear-gradient(to right, #f0fdfa, #e0f7f5);">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-5 text-success d-flex align-items-center justify-content-center gap-2" data-aos="fade-up">
+      <span class="aos-icon" data-aos="flip-left" data-aos-delay="100">📊</span>
+      {% trans "إحصائيات DataWaveAI" %}
+    </h2>
+    <div class="row text-center g-4">
+      {% for stat in statistics %}
+        <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+          <div class="stat-box p-4 rounded-4 shadow bg-white h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden stat-hover">
+            <div class="stat-icon mb-3 d-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10" style="width:80px; height:80px;">
+              {% if stat.image %}
+                <img src="{{ stat.image.url }}" alt="{{ stat.label_ar }}" class="img-fluid" style="max-width:40px;">
+              {% else %}
+                <i class="{{ stat.icon }} fa-2x text-success"></i>
+              {% endif %}
+            </div>
+            <h4 class="counter text-success fw-bold fs-2" data-target="{{ stat.value }}">0</h4>
+            <p class="fw-semibold text-muted mt-2 mb-0">
+              {% if LANGUAGE_CODE == "ar" %}
+                {{ stat.label_ar }}
+              {% else %}
+                {{ stat.label_en }}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute("data-target");
+        const count = +counter.innerText;
+
+        const increment = Math.ceil(target / 100);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  });
+</script>
+
+
+
+{% endblock %}
