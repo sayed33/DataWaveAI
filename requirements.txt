@@ -1,0 +1,11 @@
+Django>=5.2.4
+psycopg2-binary
+gunicorn
+django-crispy-forms
+django-widget-tweaks
+django-ckeditor
+django-modeltranslation
+Pillow
+whitenoise
+dj-database-url
+requests
