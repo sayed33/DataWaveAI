@@ -54,7 +54,15 @@ def services(request):
 
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
-    return render(request, 'website/service_detail.html', {'service': service})
+    services = Service.objects.exclude(pk=pk)  # باقي الخدمات
+    social_links = SocialLink.objects.all()
+
+    return render(request, 'website/service_detail.html', {
+        'service': service,
+        'services': services,
+        'social_links': social_links,
+    })
+
 
 
 

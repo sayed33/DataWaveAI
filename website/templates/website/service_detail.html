@@ -1,9 +1,41 @@
 {% extends "website/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block content %}
-  <div class="container py-5">
-    <h2>{{ service.title }}</h2>
-    <div>{{ service.description|safe }}</div>
-  </div>
+
+
+
+
+<section class="py-5">
+  <div class="container">
+    <h1 class="fw-bold text-center mb-4 text-primary">{{ service.title }}</h1>
+
+    {% if service.image %}
+      <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid rounded mb-4 d-block mx-auto" style="max-height:400px;">
+    {% endif %}
+
+    <p class="fs-5 text-dark text-center mb-4">{{ service.description|safe }}</p>
+
+    <div class="text-center mb-5">
+      <a href="https://wa.me/0096898577793?text={{ service.title }} - أود طلب هذه الخدمة" target="_blank" class="btn btn-success btn-lg px-5">
+        {% trans "تواصل معنا لطلب الخدمة" %}
+      </a>
+    </div>
+
+
+    <div class="text-center mt-5">
+      <h4 class="fw-bold text-primary">{% trans "مرحبًا بك في DataWaveAI — نساعدك في تحقيق رؤيتك التقنية بخبرة وابتكار!" %}</h4>
+    </div>
+
+    <div class="text-center mt-4">
+      {% for social in social_links %}
+        <a href="{{ social.url }}" target="_blank" class="me-3 fs-4">
+          <i class="{{ social.icon_class }}"></i>
+        </a>
+      {% endfor %}
+    </div>
+
+</section>
+
+
 {% endblock %}
