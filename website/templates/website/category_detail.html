@@ -1,0 +1,51 @@
+{% extends "website/base.html" %}
+{% load i18n static %}
+
+{% block content %}
+
+<section class="py-5">
+  <div class="container text-center" data-aos="fade-up">
+    <!-- عنوان القسم -->
+    <h1 class="fw-bold mb-3 text-gradient-tech">
+      {% if lang == "ar" %}{{ category.title_ar }}{% else %}{{ category.title_en }}{% endif %}
+    </h1>
+
+    <!-- صورة القسم -->
+    <img src="{{ category.image.url }}" alt="{{ category.title_ar }}" class="img-fluid rounded shadow mb-4" style="max-height: 400px; object-fit: cover;">
+
+    <!-- وصف القسم -->
+    <p class="lead fw-bold text-dark fs-5 mx-auto" style="max-width: 800px;">
+      {% if lang == "ar" %}{{ category.description_ar|safe }}{% else %}{{ category.description_en|safe }}{% endif %}
+    </p>
+  </div>
+<br>
+  <div class="text-center mb-5">
+    <a href="https://wa.me/0096898577793?text={{ service.title }} - أود طلب هذه الخدمة" target="_blank" class="btn btn-success btn-lg px-5">
+      {% trans "تواصل معنا لطلب الخدمة" %}
+    </a>
+  </div>
+</section>
+
+<!-- جملة ترحيبية -->
+<section class="py-5 bg-light text-center">
+  <div class="container" data-aos="fade-up">
+    <h3 class="fw-bold text-primary mb-3">
+      {% trans "نحن هنا لتحقيق أحلامك الرقمية — اختر القسم المناسب وابدأ رحلتك معنا الآن!" %}
+    </h3>
+  </div>
+</section>
+
+<!-- روابط السوشيال -->
+<section class="py-4 text-center">
+  <div class="container">
+    <div class="d-flex justify-content-center gap-3">
+      {% for social in social_links %}
+        <a href="{{ social.url }}" target="_blank" class="fs-3" title="{{ social.name }}">
+          <i class="{{ social.icon_class }}"></i>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

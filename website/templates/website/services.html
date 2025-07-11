@@ -35,7 +35,7 @@
 
             <div class="card-body">
               <h5 class="card-title text-primary fw-bold">{{ service.title }}</h5>
-              <p class="card-text text-muted">{{ service.description|truncatewords_html:14 |safe }}</p>
+              <p class="card-text text-muted">{{ service.description|truncatewords_html:20 |safe }}</p>
               <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#serviceModal{{ service.id }}">
                 {% trans "عرض سريع" %}
               </button>
@@ -75,7 +75,7 @@
 <!-- لماذا تختارنا -->
 <section class="py-5 bg-body-tertiary">
   <div class="container text-center">
-    <h2 class="mb-5 fw-bold text-dark">{% trans " لماذا تختار  DataWaveAI ؟  " %}</h2>
+    <h2 class="mb-5 fw-bold text-dark">{% trans "؟DataWaveAIلماذا تختار" %}</h2>
     <div class="row g-4 justify-content-center">
 
       <!-- جودة واحترافية -->

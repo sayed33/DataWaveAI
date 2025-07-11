@@ -413,3 +413,8 @@ html.ltr body {
   direction: ltr !important;
   text-align: left !important;
 }
+
+.full-width-slider {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}

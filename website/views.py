@@ -114,3 +114,17 @@ def contact_view(request):
         form = ContactForm()
 
     return render(request, 'website/contact.html', {'form': form})
+
+def category_detail(request, pk):
+    from .models import MainCategory, SocialLink
+
+    category = get_object_or_404(MainCategory, pk=pk)
+    social_links = SocialLink.objects.all()
+    lang = get_language()
+
+    context = {
+        'category': category,
+        'social_links': social_links,
+        'lang': lang,
+    }
+    return render(request, 'website/category_detail.html', context)
