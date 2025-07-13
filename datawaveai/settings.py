@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-@vawm4bz$46b#6e&6$ljyxm4^a6)6vui*v9(y^7)aizafr&6k9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['sayedhamdi.pythonanywhere.com', 'www.datawaveai.com']
+ALLOWED_HOSTS = ['www.datawaveai.com', 'datawaveai.com', 'sayedhamdi.pythonanywhere.com']
 
 
 # Application definition
