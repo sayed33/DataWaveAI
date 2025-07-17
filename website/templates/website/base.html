@@ -58,7 +58,7 @@
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">{% trans "الباقات" %}</a>
           <ul class="dropdown-menu {% if LANGUAGE_CODE == 'ar' %}dropdown-menu-end{% endif %}">
             <li><a class="dropdown-item" href="{% url 'packages_by_category' 'web' %}">{% trans "تصميم المواقع" %}</a></li>
-            <li><a class="dropdown-item" href="{% url 'packages_by_category' 'apps' %}">{% trans "تطبيقات ومواقع" %}</a></li>
+            <li><a class="dropdown-item" href="{% url 'packages_by_category' 'app' %}">{% trans "تطبيقات ومواقع" %}</a></li>
             <li><a class="dropdown-item" href="{% url 'packages_by_category' 'hosting' %}">{% trans "الاستضافة والتسويق" %}</a></li>
           </ul>
         </li>
